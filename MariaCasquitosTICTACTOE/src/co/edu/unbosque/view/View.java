@@ -41,11 +41,28 @@ public class View extends JFrame {
 	 */
 	private void inicializarComponentes() {
 		panelJuego = new PanelJuego();
-		panelJuego.setBounds(5, 5, 485, 480);
+		panelJuego.setBounds(20, 20, 450, 450);
 		getContentPane().add(panelJuego);
 		// Se agrega al layout en la parte CENTER, el panel de entrada definido
 		panelBoton = new PanelBoton();
-		panelBoton.setBounds(5, 500, 485,60);
+		panelBoton.setBounds(5, 490, 485, 60);
 		getContentPane().add(panelBoton);
 	}
+
+	public PanelJuego getPanelJuego() {
+		return panelJuego;
+	}
+
+	public void setPanelJuego(PanelJuego panelJuego) {
+		this.panelJuego = panelJuego;
+	}
+
+	public PanelBoton getPanelBoton() {
+		return panelBoton;
+	}
+
+	public void setPanelBoton(PanelBoton panelBoton) {
+		this.panelBoton = panelBoton;
+	}
+
 }
