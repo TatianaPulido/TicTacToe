@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import co.edu.unbosque.controller.Controller;
 
@@ -64,5 +65,7 @@ public class View extends JFrame {
 	public void setPanelBoton(PanelBoton panelBoton) {
 		this.panelBoton = panelBoton;
 	}
-
+	public void mostrarResultados(String dato) {
+		JOptionPane.showMessageDialog(null, dato);
+	}
 }
