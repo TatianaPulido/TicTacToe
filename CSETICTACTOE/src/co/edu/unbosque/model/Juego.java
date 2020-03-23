@@ -3,24 +3,28 @@ package co.edu.unbosque.model;
 import javax.swing.JOptionPane;
 
 public class Juego {
-
+	
 	private int matrizJuego[][];
-
+	
 	public Juego() {
-
+		
 		matrizJuego = new int[3][3];
 		inicializarMatriz();
+		
 	}
-
+	
 	private void inicializarMatriz() {
+		
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				matrizJuego[i][j] = 0;
 			}
 		}
+		
 	}
-
+	
 	public void asignarValorMatriz(int valorDeJugada, int posicion) {
+		
 		if (posicion == 0) {
 			matrizJuego[0][0] = valorDeJugada;
 		} else if (posicion == 1) {
@@ -40,19 +44,24 @@ public class Juego {
 		} else if (posicion == 1) {
 			matrizJuego[2][2] = valorDeJugada;
 		}
+		
 	}
-
+	
 	public int mostrarValorMatriz(int posFila, int posColumna) {
 		return matrizJuego[posFila][posColumna];
 	}
-
+	
 	public void mostrarMatriz() {
+		
 		String cadena = "";
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				cadena = cadena + matrizJuego[i][j] + " -||- ";
 			}
 		}
+		
 		JOptionPane.showMessageDialog(null, cadena);
+		
 	}
+	
 }

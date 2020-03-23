@@ -12,17 +12,17 @@ import co.edu.unbosque.model.Juego;
 import co.edu.unbosque.view.View;
 
 public class Controller implements ActionListener {
-
+	
 	private Juego juego;
 	private View gui;
 	private int contadorClick;
-
+	
 	public Controller() {
 		juego = new Juego();
 		gui = new View(this);
 		contadorClick = 0;
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent a) {
 
@@ -33,25 +33,27 @@ public class Controller implements ActionListener {
 			} catch (ValorDiferenteDeXExcepcion | SoloUnTurnoALaVezExcepcion e) {
 				e.printStackTrace();
 			}
-
+			
 		}
+		
 	}
-
+	
 	public void jugar() throws ValorDiferenteDeXExcepcion,
-			SoloUnTurnoALaVezExcepcion {
+	SoloUnTurnoALaVezExcepcion {
 		contadorClick++;
-
+		
 		gui.getPanelJuego().cargarValoresJTextField();
-
+		
 		String valorPosiciones = "";
 		int contadorCasillasOcupadas = 0;
-
+		
 		for (int i = 0; i < 9; i++) {
 			valorPosiciones = gui.getPanelJuego().mostrarValoresJTextField()[i];
+			
 			if (valorPosiciones.length() != 0) {
-				contadorCasillasOcupadas++;
-		
-		}
+				contadorCasillasOcupadas++;	
+			}
+			
 		}
 		if (contadorCasillasOcupadas == contadorClick ) {
 			for (int j = 0; j< 9; j++) {
@@ -59,25 +61,35 @@ public class Controller implements ActionListener {
 						.mostrarValoresJTextField()[j];
 				verificarX(valorPosiciones, j);
 			}
-		
+
 		} else {
-			
+
 			soloUnValor();
 
-		
+
 		}
 	}
-public void soloUnValor(){
-	try {
-		contadorClick--;
-		throw new SoloUnTurnoALaVezExcepcion();
-	} catch (SoloUnTurnoALaVezExcepcion e) {
-		gui.mostrarResultados(e.getMessage());
+	
+	public void soloUnValor(){
+		
+		try {
+			
+			contadorClick--;
+			throw new SoloUnTurnoALaVezExcepcion();
+			
+		} catch (SoloUnTurnoALaVezExcepcion e) {
+			
+			gui.mostrarResultados(e.getMessage());
+		
+		}
+		
 	}
-}
+	
 	public void verificarX(String textoJTextFile, int posicion)
 			throws ValorDiferenteDeXExcepcion {
+		
 		try {
+			
 			if (textoJTextFile.equals("x")) {
 				convertirX(textoJTextFile, posicion);
 				gui.getPanelJuego().inhabilitarCampos(posicion);
@@ -91,16 +103,20 @@ public void soloUnValor(){
 				contadorClick--;
 				throw new ValorDiferenteDeXExcepcion();
 			}
+			
 		} catch (ValorDiferenteDeXExcepcion e) {
+			
 			gui.mostrarResultados(e.getMessage());
+			
 		}
+		
 	}
-
+	
 	public void convertirX(String textoJTextFile, int posicion) {
-
+		
 		String converX = textoJTextFile.toUpperCase();
 		gui.getPanelJuego().asignarValorJTextField(converX, posicion);
 		juego.asignarValorMatriz(1, posicion);
 	}
-
+	
 }
