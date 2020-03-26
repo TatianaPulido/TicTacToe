@@ -1,7 +1,5 @@
 package co.edu.unbosque.model;
 
-import javax.swing.JOptionPane;
-
 public class Juego {
 
 	private int matrizJuego[][];
@@ -107,124 +105,124 @@ public class Juego {
 		int posicionPC = 0;
 		if (matrizJuego[0][0] == 1 && matrizJuego[0][1] == 1
 				&& matrizJuego[0][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 3);
-			posicionPC = 3;
+			asignarValorMatriz(1, 2);
+			posicionPC = 2;
 			yaSeJugo = true;
 		} else if (matrizJuego[0][0] == 1 && matrizJuego[0][1] == 0
 				&& matrizJuego[0][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 2);
+			asignarValorMatriz(1, 1);
 			yaSeJugo = true;
-			posicionPC = 2;
+			posicionPC = 1;
 		} else if (matrizJuego[0][0] == 0 && matrizJuego[0][1] == 1
 				&& matrizJuego[0][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 1);
+			asignarValorMatriz(1, 0);
 			yaSeJugo = true;
-			posicionPC = 1;
+			posicionPC = 0;
 		} else if (matrizJuego[1][0] == 1 && matrizJuego[1][1] == 1
 				&& matrizJuego[1][2] == 0 && !yaSeJugo) {
+			asignarValorMatriz(1, 5);
+			yaSeJugo = true;
+			posicionPC = 5;
+		} else if (matrizJuego[1][0] == 1 && matrizJuego[1][1] == 0
+				&& matrizJuego[1][2] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 4);
+			yaSeJugo = true;
+			posicionPC = 4;
+		} else if (matrizJuego[1][0] == 0 && matrizJuego[1][1] == 1
+				&& matrizJuego[1][2] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 3);
+			yaSeJugo = true;
+			posicionPC = 3;
+		} else if (matrizJuego[2][0] == 1 && matrizJuego[2][1] == 1
+				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
+			asignarValorMatriz(1, 8);
+			yaSeJugo = true;
+			posicionPC = 8;
+		} else if (matrizJuego[2][0] == 1 && matrizJuego[2][1] == 0
+				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 7);
+			yaSeJugo = true;
+			posicionPC = 7;
+		} else if (matrizJuego[2][0] == 0 && matrizJuego[2][1] == 1
+				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
 			asignarValorMatriz(1, 6);
 			yaSeJugo = true;
 			posicionPC = 6;
-		} else if (matrizJuego[1][0] == 1 && matrizJuego[1][1] == 0
-				&& matrizJuego[1][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 5);
-			yaSeJugo = true;
-			posicionPC = 5;
-		} else if (matrizJuego[1][0] == 0 && matrizJuego[1][1] == 1
-				&& matrizJuego[1][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 4);
-			yaSeJugo = true;
-			posicionPC = 4;
-		} else if (matrizJuego[2][0] == 1 && matrizJuego[2][1] == 1
-				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 9);
-			yaSeJugo = true;
-			posicionPC = 9;
-		} else if (matrizJuego[2][0] == 1 && matrizJuego[2][1] == 0
-				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 8);
-			yaSeJugo = true;
-			posicionPC = 8;
-		} else if (matrizJuego[2][0] == 0 && matrizJuego[2][1] == 1
-				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 7);
-			yaSeJugo = true;
-			posicionPC = 7;
 		} else if (matrizJuego[0][0] == 1 && matrizJuego[1][0] == 1
 				&& matrizJuego[2][0] == 0 && !yaSeJugo) {
+			asignarValorMatriz(1, 6);
+			yaSeJugo = true;
+			posicionPC = 6;
+		} else if (matrizJuego[0][0] == 1 && matrizJuego[1][0] == 0
+				&& matrizJuego[2][0] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 3);
+			yaSeJugo = true;
+			posicionPC = 3;
+		} else if (matrizJuego[0][0] == 0 && matrizJuego[1][0] == 1
+				&& matrizJuego[2][0] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 0);
+			yaSeJugo = true;
+			posicionPC = 0;
+		} else if (matrizJuego[0][1] == 1 && matrizJuego[1][1] == 1
+				&& matrizJuego[2][1] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 7);
 			yaSeJugo = true;
 			posicionPC = 7;
-		} else if (matrizJuego[0][0] == 1 && matrizJuego[1][0] == 0
-				&& matrizJuego[2][0] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 4);
+		} else if (matrizJuego[0][1] == 1 && matrizJuego[1][1] == 0
+				&& matrizJuego[2][1] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 3);
 			yaSeJugo = true;
-			posicionPC = 4;
-		} else if (matrizJuego[0][0] == 0 && matrizJuego[1][0] == 1
-				&& matrizJuego[2][0] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 1);
+			posicionPC = 3;
+		} else if (matrizJuego[0][1] == 0 && matrizJuego[1][1] == 1
+				&& matrizJuego[2][1] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 0);
 			yaSeJugo = true;
-			posicionPC = 1;
-		} else if (matrizJuego[0][1] == 1 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][1] == 0 && !yaSeJugo) {
+			posicionPC = 0;
+		} else if (matrizJuego[0][2] == 1 && matrizJuego[1][2] == 1
+				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 8);
 			yaSeJugo = true;
 			posicionPC = 8;
-		} else if (matrizJuego[0][1] == 1 && matrizJuego[1][1] == 0
-				&& matrizJuego[2][1] == 1 && !yaSeJugo) {
+		} else if (matrizJuego[0][2] == 1 && matrizJuego[1][2] == 0
+				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
 			asignarValorMatriz(1, 5);
 			yaSeJugo = true;
 			posicionPC = 5;
-		} else if (matrizJuego[0][1] == 0 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][1] == 1 && !yaSeJugo) {
+		} else if (matrizJuego[0][2] == 0 && matrizJuego[1][2] == 1
+				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
 			asignarValorMatriz(1, 2);
 			yaSeJugo = true;
 			posicionPC = 2;
-		} else if (matrizJuego[0][2] == 1 && matrizJuego[1][2] == 1
+		} else if (matrizJuego[0][0] == 1 && matrizJuego[1][1] == 1
 				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 9);
+			asignarValorMatriz(1, 8);
 			yaSeJugo = true;
-			posicionPC = 9;
-		} else if (matrizJuego[0][2] == 1 && matrizJuego[1][2] == 0
+			posicionPC = 8;
+		} else if (matrizJuego[0][0] == 1 && matrizJuego[1][1] == 0
 				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 4);
+			yaSeJugo = true;
+			posicionPC = 4;
+		} else if (matrizJuego[0][0] == 0 && matrizJuego[1][1] == 1
+				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
+			asignarValorMatriz(1, 0);
+			yaSeJugo = true;
+			posicionPC = 0;
+		} else if (matrizJuego[0][2] == 1 && matrizJuego[1][1] == 1
+				&& matrizJuego[2][0] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 6);
 			yaSeJugo = true;
 			posicionPC = 6;
-		} else if (matrizJuego[0][2] == 0 && matrizJuego[1][2] == 1
-				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 3);
-			yaSeJugo = true;
-			posicionPC = 3;
-		} else if (matrizJuego[0][0] == 1 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 9);
-			yaSeJugo = true;
-			posicionPC = 9;
-		} else if (matrizJuego[0][0] == 1 && matrizJuego[1][1] == 0
-				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 5);
-			yaSeJugo = true;
-			posicionPC = 5;
-		} else if (matrizJuego[0][0] == 0 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][2] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 1);
-			yaSeJugo = true;
-			posicionPC = 1;
-		} else if (matrizJuego[0][2] == 1 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][0] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 7);
-			yaSeJugo = true;
-			posicionPC = 7;
 		} else if (matrizJuego[0][2] == 1 && matrizJuego[1][1] == 0
 				&& matrizJuego[2][0] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 5);
+			asignarValorMatriz(1, 4);
 			yaSeJugo = true;
-			posicionPC = 5;
+			posicionPC = 4;
 		} else if (matrizJuego[0][2] == 0 && matrizJuego[1][1] == 1
 				&& matrizJuego[2][0] == 1 && !yaSeJugo) {
-			asignarValorMatriz(1, 3);
+			asignarValorMatriz(1, 2);
 			yaSeJugo = true;
-			posicionPC = 3;
+			posicionPC = 2;
 		}
 		return posicionPC;
 	}
@@ -233,130 +231,124 @@ public class Juego {
 		int posicionPC = 0;
 		if (matrizJuego[0][0] == 2 && matrizJuego[0][1] == 2
 				&& matrizJuego[0][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 3);
-			posicionPC = 3;
+			asignarValorMatriz(1, 2);
+			posicionPC = 2;
 			yaSeJugo = true;
 		} else if (matrizJuego[0][0] == 2 && matrizJuego[0][1] == 0
 				&& matrizJuego[0][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 2);
+			asignarValorMatriz(1, 1);
 			yaSeJugo = true;
-			posicionPC = 2;
+			posicionPC = 1;
 		} else if (matrizJuego[0][0] == 0 && matrizJuego[0][1] == 2
 				&& matrizJuego[0][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 1);
+			asignarValorMatriz(1, 0);
 			yaSeJugo = true;
-			posicionPC = 1;
+			posicionPC = 0;
 		} else if (matrizJuego[1][0] == 2 && matrizJuego[1][1] == 2
 				&& matrizJuego[1][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 6);
-			yaSeJugo = true;
-			posicionPC = 6;
-		} else if (matrizJuego[1][0] == 2 && matrizJuego[1][1] == 0
-				&& matrizJuego[1][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 5);
-			yaSeJugo = true;
-			posicionPC = 6;
-		} else if (matrizJuego[1][0] == 0 && matrizJuego[1][1] == 2
-				&& matrizJuego[1][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 4);
-			yaSeJugo = true;
-			posicionPC = 4;
-		}
-		if (matrizJuego[2][0] == 2 && matrizJuego[2][1] == 2
-				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 9);
-			yaSeJugo = true;
-			posicionPC = 9;
-		} else if (matrizJuego[2][0] == 2 && matrizJuego[2][1] == 0
-				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 8);
-			yaSeJugo = true;
-			posicionPC = 8;
-		} else if (matrizJuego[2][0] == 0 && matrizJuego[2][1] == 2
-				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 7);
-			yaSeJugo = true;
-			posicionPC = 7;
-		}
-		if (matrizJuego[0][0] == 2 && matrizJuego[1][0] == 2
-				&& matrizJuego[2][0] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 7);
-			yaSeJugo = true;
-			posicionPC = 7;
-		} else if (matrizJuego[0][0] == 2 && matrizJuego[1][0] == 0
-				&& matrizJuego[2][0] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 4);
-			yaSeJugo = true;
-			posicionPC = 4;
-		} else if (matrizJuego[0][0] == 0 && matrizJuego[1][0] == 2
-				&& matrizJuego[2][0] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 1);
-			yaSeJugo = true;
-			posicionPC = 1;
-		}
-		if (matrizJuego[0][1] == 2 && matrizJuego[1][1] == 2
-				&& matrizJuego[2][1] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 8);
-			yaSeJugo = true;
-			posicionPC = 8;
-		} else if (matrizJuego[0][1] == 2 && matrizJuego[1][1] == 0
-				&& matrizJuego[2][1] == 2 && !yaSeJugo) {
 			asignarValorMatriz(1, 5);
 			yaSeJugo = true;
 			posicionPC = 5;
+		} else if (matrizJuego[1][0] == 2 && matrizJuego[1][1] == 0
+				&& matrizJuego[1][2] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 4);
+			yaSeJugo = true;
+			posicionPC = 4;
+		} else if (matrizJuego[1][0] == 0 && matrizJuego[1][1] == 2
+				&& matrizJuego[1][2] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 3);
+			yaSeJugo = true;
+			posicionPC = 3;
+		}else if (matrizJuego[2][0] == 2 && matrizJuego[2][1] == 2
+				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
+			asignarValorMatriz(1, 8);
+			yaSeJugo = true;
+			posicionPC = 8;
+		} else if (matrizJuego[2][0] == 2 && matrizJuego[2][1] == 0
+				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 7);
+			yaSeJugo = true;
+			posicionPC = 7;
+		} else if (matrizJuego[2][0] == 0 && matrizJuego[2][1] == 2
+				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 6);
+			yaSeJugo = true;
+			posicionPC = 6;
+		} else if (matrizJuego[0][0] == 2 && matrizJuego[1][0] == 2
+				&& matrizJuego[2][0] == 0 && !yaSeJugo) {
+			asignarValorMatriz(1, 6);
+			yaSeJugo = true;
+			posicionPC = 6;
+		} else if (matrizJuego[0][0] == 2 && matrizJuego[1][0] == 0
+				&& matrizJuego[2][0] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 3);
+			yaSeJugo = true;
+			posicionPC = 3;
+		} else if (matrizJuego[0][0] == 0 && matrizJuego[1][0] == 2
+				&& matrizJuego[2][0] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 0);
+			yaSeJugo = true;
+			posicionPC = 0;
+		} else if (matrizJuego[0][1] == 2 && matrizJuego[1][1] == 2
+				&& matrizJuego[2][1] == 0 && !yaSeJugo) {
+			asignarValorMatriz(1, 7);
+			yaSeJugo = true;
+			posicionPC = 7;
+		} else if (matrizJuego[0][1] == 2 && matrizJuego[1][1] == 0
+				&& matrizJuego[2][1] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 4);
+			yaSeJugo = true;
+			posicionPC = 4;
 		} else if (matrizJuego[0][1] == 0 && matrizJuego[1][1] == 2
 				&& matrizJuego[2][1] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 1);
+			yaSeJugo = true;
+			posicionPC = 1;
+		} else if (matrizJuego[0][2] == 2 && matrizJuego[1][2] == 2
+				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
+			asignarValorMatriz(1, 8);
+			yaSeJugo = true;
+			posicionPC = 8;
+		} else if (matrizJuego[0][2] == 2 && matrizJuego[1][2] == 0
+				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 5);
+			yaSeJugo = true;
+			posicionPC = 5;
+		} else if (matrizJuego[0][2] == 0 && matrizJuego[1][2] == 2
+				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
 			asignarValorMatriz(1, 2);
 			yaSeJugo = true;
 			posicionPC = 2;
-		}
-		if (matrizJuego[0][2] == 2 && matrizJuego[1][2] == 2
+		} else if (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 2
 				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 9);
+			asignarValorMatriz(1, 8);
 			yaSeJugo = true;
-			posicionPC = 9;
-		} else if (matrizJuego[0][2] == 2 && matrizJuego[1][2] == 0
+			posicionPC = 8;
+		} else if (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 0
 				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 4);
+			yaSeJugo = true;
+			posicionPC = 4;
+		} else if (matrizJuego[0][0] == 0 && matrizJuego[1][1] == 2
+				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
+			asignarValorMatriz(1, 0);
+			yaSeJugo = true;
+			posicionPC = 0;
+		} else if (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 2
+				&& matrizJuego[2][0] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 6);
 			yaSeJugo = true;
 			posicionPC = 6;
-		} else if (matrizJuego[0][2] == 0 && matrizJuego[1][2] == 2
-				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 3);
-			yaSeJugo = true;
-			posicionPC = 3;
-		}
-		if (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 2
-				&& matrizJuego[2][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 9);
-			yaSeJugo = true;
-			posicionPC = 9;
-		} else if (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 0
-				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 5);
-			yaSeJugo = true;
-			posicionPC = 5;
-		} else if (matrizJuego[0][0] == 0 && matrizJuego[1][1] == 2
-				&& matrizJuego[2][2] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 1);
-			yaSeJugo = true;
-			posicionPC = 1;
-		}
-		if (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 2
-				&& matrizJuego[2][0] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 7);
-			yaSeJugo = true;
-			posicionPC = 7;
 		} else if (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 0
 				&& matrizJuego[2][0] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 5);
+			asignarValorMatriz(1, 4);
 			yaSeJugo = true;
-			posicionPC = 5;
+			posicionPC = 4;
 		} else if (matrizJuego[0][2] == 0 && matrizJuego[1][1] == 2
 				&& matrizJuego[2][0] == 2 && !yaSeJugo) {
-			asignarValorMatriz(1, 3);
+			asignarValorMatriz(1, 2);
 			yaSeJugo = true;
-			posicionPC = 3;
+			posicionPC = 2;
 		}
 		return posicionPC;
 	}
@@ -371,111 +363,76 @@ public class Juego {
 		return posicionPC;
 	}
 
-	public int jugadasEspeciales() {
-		int posicionPC = 0;
-		if (matrizJuego[1][0] == 2 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][2] == 2 && matrizJuego[2][0] == 0
-				&& !yaSeJugo) {
-			asignarValorMatriz(1, 7);
-			yaSeJugo = true;
-			posicionPC = 7;
-		} else if (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][2] == 2 && matrizJuego[2][1] == 0
-				&& !yaSeJugo) {
-			asignarValorMatriz(1, 8);
-			yaSeJugo = true;
-			posicionPC = 8;
-		} else if (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][0] == 2 && matrizJuego[1][0] == 0
-				&& !yaSeJugo) {
-			asignarValorMatriz(1, 4);
-			yaSeJugo = true;
-			posicionPC = 4;
-		} else if (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][1] == 2 && matrizJuego[1][2] == 0
-				&& !yaSeJugo) {
-			asignarValorMatriz(1, 6);
-			yaSeJugo = true;
-			posicionPC = 6;
-		} else if (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 1
-				&& matrizJuego[2][1] == 2 && matrizJuego[2][0] == 0
-				&& !yaSeJugo) {
-			asignarValorMatriz(1, 7);
-			yaSeJugo = true;
-			posicionPC = 7;
-		}
-
-		return posicionPC;
-	}
-
 	public int jugarCasillasVacias() {
 		int posicionPC = 0;
 		if (matrizJuego[0][0] == 0 && !yaSeJugo) {
+			asignarValorMatriz(1, 0);
+			yaSeJugo = true;
+			posicionPC = 0;
+		} else if (matrizJuego[0][1] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 1);
 			yaSeJugo = true;
 			posicionPC = 1;
-		} else if (matrizJuego[0][1] == 0 && !yaSeJugo) {
+		} else if (matrizJuego[0][2] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 2);
 			yaSeJugo = true;
 			posicionPC = 2;
-		} else if (matrizJuego[0][2] == 0 && !yaSeJugo) {
+		} else if (matrizJuego[1][0] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 3);
 			yaSeJugo = true;
 			posicionPC = 3;
-		} else if (matrizJuego[1][0] == 0 && !yaSeJugo) {
+		} else if (matrizJuego[1][1] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 4);
 			yaSeJugo = true;
 			posicionPC = 4;
-		} else if (matrizJuego[1][1] == 0 && !yaSeJugo) {
+		} else if (matrizJuego[1][2] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 5);
 			yaSeJugo = true;
 			posicionPC = 5;
-		} else if (matrizJuego[1][2] == 0 && !yaSeJugo) {
+		} else if (matrizJuego[2][0] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 6);
 			yaSeJugo = true;
 			posicionPC = 6;
-		} else if (matrizJuego[2][0] == 0 && !yaSeJugo) {
+		} else if (matrizJuego[2][1] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 7);
 			yaSeJugo = true;
 			posicionPC = 7;
-		} else if (matrizJuego[2][1] == 0 && !yaSeJugo) {
+		} else if (matrizJuego[2][2] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 8);
 			yaSeJugo = true;
 			posicionPC = 8;
-		} else if (matrizJuego[2][2] == 0 && !yaSeJugo) {
-			asignarValorMatriz(1, 9);
-			yaSeJugo = true;
-			posicionPC = 9;
 		}
 		return posicionPC;
 	}
 
 	public int jugarPC() {
 		int posicionPC = 0;
+		String n = "";
 		if (!yaSeJugo) {
 			posicionPC = jugarAleatorio();
+			n = "juge aleatorio";
 		}
 		if (!yaSeJugo) {
 			posicionPC = jugarAtacar();
+			n = "jugue atacar";
 		}
 		if (!yaSeJugo) {
 			posicionPC = jugarDefender();
+			n = "juge defender";
 		}
 		if (!yaSeJugo) {
 			posicionPC = jugarCentro();
-		}
-		if (!yaSeJugo) {
-			posicionPC = jugadasEspeciales();
+			n = "jugue centro";
 		}
 		if (!yaSeJugo) {
 			posicionPC = jugarCasillasVacias();
+			n = "jugue casillas vacias";
 		}
 		numerojugadasPC++;
 		int i = numerojugadasPC - 1;
 		posicionJugadaPC[i] = posicionPC;
-
 		yaSeJugo = false;
-		JOptionPane.showMessageDialog(null, "Posicion pc= " + posicionPC);
+		System.out.println(n);
 		return posicionPC;
 	}
 }
