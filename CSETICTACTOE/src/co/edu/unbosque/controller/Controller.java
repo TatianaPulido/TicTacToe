@@ -28,6 +28,7 @@ public class Controller implements ActionListener {
 		if (a.getSource().equals(gui.getPanelBoton().getBotonJugar())) {
 			try {
 				jugarHumano();
+				gui.mostrarMensajes(juego.Mensajes(contadorClick), juego.finJuego(juego.Mensajes(contadorClick)));
 			} catch (ValorDiferenteDeXExcepcion | SoloUnTurnoALaVezExcepcion e) {
 				e.printStackTrace();
 			}

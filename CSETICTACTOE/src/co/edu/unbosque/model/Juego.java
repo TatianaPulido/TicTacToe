@@ -1,17 +1,23 @@
 package co.edu.unbosque.model;
 
+import javax.swing.JOptionPane;
+
+import co.edu.unbosque.view.Mensaje;
+
 public class Juego {
 
 	private int matrizJuego[][];
 	public int posicionJugadaPC[];
 	public int numerojugadasPC;
 	private boolean yaSeJugo;
+	Mensaje mensaje;
 
 	public Juego() {
 
 		matrizJuego = new int[3][3];
 		posicionJugadaPC = new int[4];
 		yaSeJugo = false;
+		mensaje = new Mensaje();
 		inicializarMatriz();
 		inicializarArreglo();
 	}
@@ -435,4 +441,56 @@ public class Juego {
 		System.out.println(n);
 		return posicionPC;
 	}
-}
+	
+	public String Mensajes(int contador) {
+		String texto = "";
+		if ((matrizJuego[0][0] == 1 && matrizJuego[0][1] == 1
+				&& matrizJuego[0][2] == 1) || (matrizJuego[1][0] == 1 && matrizJuego[1][1] == 1
+				&& matrizJuego[1][2] == 1) || (matrizJuego[2][0] == 1 && matrizJuego[2][1] == 1
+				&& matrizJuego[2][2] == 1) || (matrizJuego[0][0] == 1 && matrizJuego[1][0] == 1
+				&& matrizJuego[2][0] == 1) || (matrizJuego[0][1] == 1 && matrizJuego[1][1] == 1
+				&& matrizJuego[2][1] == 1) || (matrizJuego[0][2] == 1 && matrizJuego[1][2] == 1
+				&& matrizJuego[2][2] == 1) || (matrizJuego[0][0] == 1 && matrizJuego[1][1] == 1
+				&& matrizJuego[2][2] == 1) || (matrizJuego[0][2] == 1 && matrizJuego[1][1] == 1
+				&& matrizJuego[2][0] == 1)) {
+			
+			texto = "He ganado";
+			
+		}else{
+			if((matrizJuego[0][0] == 2 && matrizJuego[0][1] == 2
+				&& matrizJuego[0][2] == 2) || (matrizJuego[1][0] == 2 && matrizJuego[1][1] == 2
+				&& matrizJuego[1][2] == 2) || (matrizJuego[2][0] == 2 && matrizJuego[2][1] == 2
+				&& matrizJuego[2][2] == 2) || (matrizJuego[0][0] == 2 && matrizJuego[1][0] == 2
+				&& matrizJuego[2][0] == 2) || (matrizJuego[0][1] == 2 && matrizJuego[1][1] == 2
+				&& matrizJuego[2][1] == 2) || (matrizJuego[0][2] == 2 && matrizJuego[1][2] == 2
+				&& matrizJuego[2][2] == 2) || (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 2
+				&& matrizJuego[2][2] == 2) || (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 2
+				&& matrizJuego[2][0] == 2)) {
+				
+				texto = "Has ganado :(";
+				
+			}else{
+				if(contador==9) {
+			
+				texto =  "Empate";
+				}else {
+					texto = "";
+				}
+		}
+		}
+		return texto;
+		}
+	
+	
+	public boolean finJuego(String texto) {
+		boolean finJuego = false;
+		if(texto == "") {
+			finJuego = false;
+		}else {
+			finJuego = true;
+		}
+		return finJuego;
+	}
+	
+	
+	}

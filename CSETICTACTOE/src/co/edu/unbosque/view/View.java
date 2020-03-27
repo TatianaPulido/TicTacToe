@@ -69,5 +69,10 @@ public class View extends JFrame {
 	public void mostrarResultados(String dato) {
 		JOptionPane.showMessageDialog(null, dato);
 	}
+	public void mostrarMensajes(String dato, boolean finJuego) {
+		if(finJuego == true) {
+		JOptionPane.showMessageDialog(null, dato);
+	}
+   }	
 	
 }
