@@ -1,8 +1,6 @@
 package co.edu.unbosque.model;
 
-import javax.swing.JOptionPane;
 
-import co.edu.unbosque.view.Mensaje;
 
 public class Juego {
 
@@ -10,14 +8,12 @@ public class Juego {
 	public int posicionJugadaPC[];
 	public int numerojugadasPC;
 	private boolean yaSeJugo;
-	Mensaje mensaje;
 
 	public Juego() {
 
 		matrizJuego = new int[3][3];
 		posicionJugadaPC = new int[4];
 		yaSeJugo = false;
-		mensaje = new Mensaje();
 		inicializarMatriz();
 		inicializarArreglo();
 	}
@@ -454,7 +450,7 @@ public class Juego {
 				&& matrizJuego[2][2] == 1) || (matrizJuego[0][2] == 1 && matrizJuego[1][1] == 1
 				&& matrizJuego[2][0] == 1)) {
 			
-			texto = "He ganado";
+			texto = "¡Ja, ja te gane humano!";
 			
 		}else{
 			if((matrizJuego[0][0] == 2 && matrizJuego[0][1] == 2
@@ -467,12 +463,12 @@ public class Juego {
 				&& matrizJuego[2][2] == 2) || (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 2
 				&& matrizJuego[2][0] == 2)) {
 				
-				texto = "Has ganado :(";
+				texto = "Hmm, me ganaste, ¡qué aburrido!";
 				
 			}else{
 				if(contador==9) {
 			
-				texto =  "Empate";
+				texto =  "Empate. No pudimos";
 				}else {
 					texto = "";
 				}
