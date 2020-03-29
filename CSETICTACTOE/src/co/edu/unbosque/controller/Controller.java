@@ -11,107 +11,96 @@ import co.edu.unbosque.view.View;
 public class Controller implements ActionListener {
 
 	private Juego juego;
-	private View gui;
+	private View view;
 
 	public Controller() {
-		
 		juego = new Juego();
-		gui = new View(this);
-		gui.getPanelJuego().cargarValoresJTextField();
-		
+		view = new View(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent a) {
 
-		if (a.getSource().equals(gui.getPanelBoton().getBotonJugar())) {
+		if (a.getSource().equals(
+				view.getVentanaPrincipal().getPanelBoton().getBotonJugar())) {
 			try {
-				jugarHumano();
-				gui.mostrarMensajes(juego.Mensajes(juego.contadorClicks), juego.finJuego(juego.Mensajes(juego.contadorClicks)));
-				gui.imprimirEnConsola("Contador de Clicks: " + juego.contadorClicks);
+				String mens = juego.jugar(view.getVentanaPrincipal()
+						.getPanelJuego().mostrarValoresJTextField());
+				if (mens.length() > 2) {
+					view.getMensaje().mostrarMensajes(mens);
+				} else {
+					view.getVentanaPrincipal()
+							.getPanelJuego()
+							.asignarValoresJTextField(
+									actualizarJtextField(juego.mostrarMatriz()));
+					String mensaje = juego.Mensajes();
+					if (juego.getFinDeJuego()) {
+						view.getMensaje().mostrarMensajes(mensaje);
+						juego.reiniciar();
+						view.getVentanaPrincipal().getPanelJuego().reiniciar();
+					}
+				}
 			} catch (ValorDiferenteDeXExcepcion | SoloUnTurnoALaVezExcepcion e) {
 				e.printStackTrace();
 			}
 		}
 	}
+/**
+ * Este metodo actuliza los valores de los JTextField
+ * @param matrizJuego Se le envia como parametro la matriz de juego
+ * @return Devuelve un arreglo de String
+ */
+	public String[] actualizarJtextField(int[][] matrizJuego) {
 
-	public void jugarHumano() throws ValorDiferenteDeXExcepcion, SoloUnTurnoALaVezExcepcion {
-		
-		juego.yaSeJugoUsuario = false;
-		juego.contadorClicks++;
-		gui.getPanelJuego().cargarValoresJTextField();
-		String valorPosiciones = "";
-		int contadorCasillasOcupadas = 0;
-		
-		for (int i = 0; i < 9; i++) {
-			valorPosiciones = gui.getPanelJuego().mostrarValoresJTextField()[i];
-			if (valorPosiciones.length() != 0) {
-				contadorCasillasOcupadas++;
-			}
-		}
-		
-		if (contadorCasillasOcupadas == (juego.contadorClicks + juego.numerojugadasPC)) {
-			
-			if (juego.contadorClicks == 1) {
-				for (int j = 0; j < 9; j++) {
-					valorPosiciones = gui.getPanelJuego().mostrarValoresJTextField()[j];
-					juego.verificarX(valorPosiciones, j);
-					actualizarJTextField(juego.getvX_Caso(), juego.getvX_Posicion());
-					
-				}
-				
-			}else {
-				
-				for (int k = 0; k < 9; k++) {
-					if (k != juego.posicionJugadaPC[0] && k != juego.posicionJugadaPC[1]
-							&& k != juego.posicionJugadaPC[2] && k != juego.posicionJugadaPC[3]) {
+		String[] arregloVista = new String[9];
 
-						valorPosiciones = gui.getPanelJuego().mostrarValoresJTextField()[k];
-						juego.verificarX(valorPosiciones, k);
-						actualizarJTextField(juego.getvX_Caso(), juego.getvX_Posicion());
+		if (matrizJuego[0][0] == 1) {
+			arregloVista[0] = "O";
+		} else if (matrizJuego[0][0] == 2) {
+			arregloVista[0] = "X";
+		}
+		if (matrizJuego[0][1] == 1) {
+			arregloVista[1] = "O";
+		} else if (matrizJuego[0][1] == 2) {
+			arregloVista[1] = "X";
+		}
+		if (matrizJuego[0][2] == 1) {
+			arregloVista[2] = "O";
+		} else if (matrizJuego[0][2] == 2) {
+			arregloVista[2] = "X";
+		}
+		if (matrizJuego[1][0] == 1) {
+			arregloVista[3] = "O";
+		} else if (matrizJuego[1][0] == 2) {
+			arregloVista[3] = "X";
+		}
+		if (matrizJuego[1][1] == 1) {
+			arregloVista[4] = "O";
+		} else if (matrizJuego[1][1] == 2) {
+			arregloVista[4] = "X";
+		}
+		if (matrizJuego[1][2] == 1) {
+			arregloVista[5] = "O";
+		} else if (matrizJuego[1][2] == 2) {
+			arregloVista[5] = "X";
+		}
+		if (matrizJuego[2][0] == 1) {
+			arregloVista[6] = "O";
+		} else if (matrizJuego[2][0] == 2) {
+			arregloVista[6] = "X";
+		}
+		if (matrizJuego[2][1] == 1) {
+			arregloVista[7] = "O";
+		} else if (matrizJuego[2][1] == 2) {
+			arregloVista[7] = "X";
+		}
+		if (matrizJuego[2][2] == 1) {
+			arregloVista[8] = "O";
+		} else if (matrizJuego[2][2] == 2) {
+			arregloVista[8] = "X";
+		}
 
-					}
-				}
-			}
-		} else {
-			gui.messageDialog("Más De Una Casilla Por Jugada", juego.soloUnValor());
-		}
-		if (juego.yaSeJugoUsuario) {
-			int pos = juego.jugarPC();
-			gui.getPanelJuego().asignarValorJTextField("O", pos);
-			gui.getPanelJuego().inhabilitarCampos(pos);
-			juego.yaSeJugoUsuario = false;
-			gui.imprimirEnConsola(juego.mostrarMatrizYJugada());
-		}
+		return arregloVista;
 	}
-	
-	public void actualizarJTextField(int caso, int posicion) {
-		
-		if(caso == 1) {
-			
-			gui.getPanelJuego().asignarValorJTextField(juego.getvX_ConverX(), posicion);
-			gui.getPanelJuego().inhabilitarCampos(posicion);
-			
-		}else 
-		
-		if(caso == 2) {
-			
-			gui.getPanelJuego().inhabilitarCampos(posicion);
-			
-		}else
-		
-		if(caso == 3) {
-			
-			gui.getPanelJuego().vaciarCampos(posicion);
-			
-		}else
-		
-		if(caso == 4) {
-			
-			gui.messageDialog("Carácter No Valido", juego.getvX_V_D_XException());
-			
-		}
-		
-	}
-	
+
 }
