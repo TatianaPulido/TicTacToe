@@ -50,6 +50,18 @@ public class View extends JFrame {
 		getContentPane().add(panelBoton);
 	}
 	
+	public void imprimirEnConsola(String dato) {
+		
+		System.out.println(dato);
+		
+	}
+	
+	public void messageDialog(String titulo, String texto) {
+		
+		JOptionPane.showMessageDialog(null, texto, titulo, JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+	
 	public PanelJuego getPanelJuego() {
 		return panelJuego;
 	}
@@ -66,13 +78,13 @@ public class View extends JFrame {
 		this.panelBoton = panelBoton;
 	}
 	
-	public void mostrarResultados(String dato) {
-		JOptionPane.showMessageDialog(null, dato);
-	}
 	public void mostrarMensajes(String dato, boolean finJuego) {
+		
 		if(finJuego == true) {
-		JOptionPane.showMessageDialog(null, dato);
+			JOptionPane.showMessageDialog(null, dato);
+			panelBoton.getBotonJugar().setEnabled(false);
+			
+		}
 	}
-   }	
-	
+
 }

@@ -1,19 +1,25 @@
 package co.edu.unbosque.model;
 
-
-
 public class Juego {
 
 	private int matrizJuego[][];
 	public int posicionJugadaPC[];
+	public int contadorClicks;//Cambiado de Controller
 	public int numerojugadasPC;
 	private boolean yaSeJugo;
+	public boolean yaSeJugoUsuario;//Cambiado de Controller
+	public String dondeJugoPC;//Agregado para usar en Controller
+	
+	private String vX_V_D_XException, vX_ConverX;
+	private int vX_Caso, vX_Posicion;
 
 	public Juego() {
 
 		matrizJuego = new int[3][3];
 		posicionJugadaPC = new int[4];
+		contadorClicks = 0;
 		yaSeJugo = false;
+		yaSeJugoUsuario = false;
 		inicializarMatriz();
 		inicializarArreglo();
 	}
@@ -66,7 +72,7 @@ public class Juego {
 		return matrizJuego[posFila][posColumna];
 	}
 
-	public void mostrarMatriz() {
+	public String mostrarMatrizYJugada() {
 
 		String cadena = "";
 		for (int i = 0; i < 3; i++) {
@@ -77,11 +83,9 @@ public class Juego {
 				if (j == 2) {
 					cadena = cadena + "\n";
 				}
-
 			}
 		}
-
-		System.out.println(cadena);
+		return "Matriz Modelo: \nJugada PC: " + dondeJugoPC + "\n" + cadena;
 
 	}
 
@@ -230,7 +234,9 @@ public class Juego {
 	}
 
 	public int jugarDefender() {
+		
 		int posicionPC = 0;
+		
 		if (matrizJuego[0][0] == 2 && matrizJuego[0][1] == 2
 				&& matrizJuego[0][2] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 2);
@@ -356,6 +362,7 @@ public class Juego {
 	}
 
 	public int jugarCentro() {
+		
 		int posicionPC = 0;
 		if (matrizJuego[1][1] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 4);
@@ -366,7 +373,9 @@ public class Juego {
 	}
 
 	public int jugarCasillasVacias() {
+		
 		int posicionPC = 0;
+		
 		if (matrizJuego[0][0] == 0 && !yaSeJugo) {
 			asignarValorMatriz(1, 0);
 			yaSeJugo = true;
@@ -408,38 +417,42 @@ public class Juego {
 	}
 
 	public int jugarPC() {
+		
 		int posicionPC = 0;
+		
 		String n = "";
 		if (!yaSeJugo) {
 			posicionPC = jugarAleatorio();
-			n = "juge aleatorio";
+			n = "Jugue aleatorio";
 		}
 		if (!yaSeJugo) {
 			posicionPC = jugarAtacar();
-			n = "jugue atacar";
+			n = "Jugue atacar";
 		}
 		if (!yaSeJugo) {
 			posicionPC = jugarDefender();
-			n = "juge defender";
+			n = "Juge defender";
 		}
 		if (!yaSeJugo) {
 			posicionPC = jugarCentro();
-			n = "jugue centro";
+			n = "Jugue centro";
 		}
 		if (!yaSeJugo) {
 			posicionPC = jugarCasillasVacias();
-			n = "jugue casillas vacias";
+			n = "Jugue casillas vacias";
 		}
 		numerojugadasPC++;
 		int i = numerojugadasPC - 1;
 		posicionJugadaPC[i] = posicionPC;
 		yaSeJugo = false;
-		System.out.println(n);
+		dondeJugoPC = n;
 		return posicionPC;
 	}
 	
 	public String Mensajes(int contador) {
+		
 		String texto = "";
+		
 		if ((matrizJuego[0][0] == 1 && matrizJuego[0][1] == 1
 				&& matrizJuego[0][2] == 1) || (matrizJuego[1][0] == 1 && matrizJuego[1][1] == 1
 				&& matrizJuego[1][2] == 1) || (matrizJuego[2][0] == 1 && matrizJuego[2][1] == 1
@@ -452,33 +465,37 @@ public class Juego {
 			
 			texto = "¡Ja, ja te gane humano!";
 			
-		}else{
+		}else {
 			if((matrizJuego[0][0] == 2 && matrizJuego[0][1] == 2
-				&& matrizJuego[0][2] == 2) || (matrizJuego[1][0] == 2 && matrizJuego[1][1] == 2
-				&& matrizJuego[1][2] == 2) || (matrizJuego[2][0] == 2 && matrizJuego[2][1] == 2
-				&& matrizJuego[2][2] == 2) || (matrizJuego[0][0] == 2 && matrizJuego[1][0] == 2
-				&& matrizJuego[2][0] == 2) || (matrizJuego[0][1] == 2 && matrizJuego[1][1] == 2
-				&& matrizJuego[2][1] == 2) || (matrizJuego[0][2] == 2 && matrizJuego[1][2] == 2
-				&& matrizJuego[2][2] == 2) || (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 2
-				&& matrizJuego[2][2] == 2) || (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 2
-				&& matrizJuego[2][0] == 2)) {
-				
+					&& matrizJuego[0][2] == 2) || (matrizJuego[1][0] == 2 && matrizJuego[1][1] == 2
+					&& matrizJuego[1][2] == 2) || (matrizJuego[2][0] == 2 && matrizJuego[2][1] == 2
+					&& matrizJuego[2][2] == 2) || (matrizJuego[0][0] == 2 && matrizJuego[1][0] == 2
+					&& matrizJuego[2][0] == 2) || (matrizJuego[0][1] == 2 && matrizJuego[1][1] == 2
+					&& matrizJuego[2][1] == 2) || (matrizJuego[0][2] == 2 && matrizJuego[1][2] == 2
+					&& matrizJuego[2][2] == 2) || (matrizJuego[0][0] == 2 && matrizJuego[1][1] == 2
+					&& matrizJuego[2][2] == 2) || (matrizJuego[0][2] == 2 && matrizJuego[1][1] == 2
+					&& matrizJuego[2][0] == 2)) {
+
 				texto = "Hmm, me ganaste, ¡qué aburrido!";
-				
+
 			}else{
-				if(contador==9) {
-			
-				texto =  "Empate. No pudimos";
+				
+				if(contador == 4) {//Cambiado por generar error
+
+					texto =  "Empate. No pudimos";
+					
 				}else {
+					
 					texto = "";
+					
 				}
-		}
+			}
 		}
 		return texto;
-		}
-	
+	}
 	
 	public boolean finJuego(String texto) {
+		
 		boolean finJuego = false;
 		if(texto == "") {
 			finJuego = false;
@@ -489,4 +506,80 @@ public class Juego {
 	}
 	
 	
+	//Cambiado de Controller
+	
+	public void verificarX(String textoJTextFile, int posicion) throws ValorDiferenteDeXExcepcion {
+
+		try {
+			
+			vX_Caso = 0;
+			vX_Posicion = posicion;
+			
+			if (textoJTextFile.equals("x")) {
+				
+				vX_ConverX = textoJTextFile.toUpperCase();
+				asignarValorMatriz(2, posicion);
+				yaSeJugoUsuario = true;
+				vX_Caso = 1;
+				
+			} else if (textoJTextFile.equals("X")) {
+				
+				asignarValorMatriz(2, posicion);
+				yaSeJugoUsuario = true;
+				vX_Caso = 2;
+				
+			} else if (textoJTextFile.length() == 0) {
+				
+				asignarValorMatriz(0, posicion);
+				
+			} else {
+				
+				contadorClicks--;
+				yaSeJugoUsuario = false;
+				vX_Caso = 3;
+				throw new ValorDiferenteDeXExcepcion();
+				
+			}
+
+		} catch (ValorDiferenteDeXExcepcion e) {
+			
+			vX_Caso = 4;
+			vX_V_D_XException = e.getMessage();
+
+		}
+
 	}
+	
+	public String soloUnValor() {
+
+		try {
+
+			contadorClicks--;
+			yaSeJugoUsuario = false;
+			throw new SoloUnTurnoALaVezExcepcion();
+
+		} catch (SoloUnTurnoALaVezExcepcion e) {
+
+			return e.getMessage();
+
+		}
+
+	}
+	
+	public int getvX_Caso() {
+		return vX_Caso;
+	}
+
+	public int getvX_Posicion() {
+		return vX_Posicion;
+	}
+
+	public String getvX_ConverX() {
+		return vX_ConverX;
+	}
+
+	public String getvX_V_D_XException() {
+		return vX_V_D_XException;
+	}
+	
+}
